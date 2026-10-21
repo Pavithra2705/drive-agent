@@ -1,0 +1,36 @@
+# DriveAgent Configuration
+# Matches architecture specification
+
+# SLM Settings
+model_path: llama3.2        # Ollama model name (llama3.2 = Llama 3.2 3B INT4)
+model_type: ollama           # ollama | huggingface
+max_tokens: 512              # Max tokens to generate
+temperature: 0.1             # Lower = more focused output
+
+# Google Drive Settings
+credentials_path: credentials.json
+token_path: token.json
+drive_folder_id: root        # Folder to watch (root = entire Drive)
+watch_interval: 300          # Seconds between Drive polls in watch mode
+
+# Chunking Settings
+chunk_size: 512              # Tokens per chunk
+chunk_overlap: 50            # Overlap between chunks
+
+# RAG Settings
+top_k: 5                     # Number of chunks to retrieve
+
+# Output Settings
+output_format: docx          # docx | txt | json
+output_suffix: _summary      # Appended to original filename
+
+# Cache Settings
+db_path: ./data/cache.db     # SQLite cache for processed files
+
+# API Settings
+api_host: 0.0.0.0
+api_port: 8001
+
+# Logging
+log_path: ./logs/agent.log
+log_level: INFO
